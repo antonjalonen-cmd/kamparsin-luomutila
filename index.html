@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="fi" data-lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n-title="fi">Kamparsin Luomutila – Luomua meren rannalta Karunasta</title>
+<meta name="description" data-i18n-desc="fi" content="Kamparsin Luomutila Karunassa, Sauvossa – luomuviljaa, vihanneksia, luonnontuotteita ja tilapuoti meren äärellä. Tervetuloa!">
+<meta name="theme-color" content="#1a3040">
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kamparsin Luomutila">
+<meta property="og:title" content="Kamparsin Luomutila – Luomua meren rannalta">
+<meta property="og:description" content="Luomuviljaa, vihanneksia ja luonnontuotteita suoraan tilalta meren rannalla Karunassa.">
+<meta property="og:image" content="images/logo.jpg">
+<link rel="icon" href="images/logo.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Kamparsin Luomutila",
+  "description": "Luomutila Karunassa, Sauvossa. Viljaa, vihanneksia, luonnontuotteita, tilapuoti ja kesäkahvila meren rannalla.",
+  "image": "images/logo.jpg",
+  "telephone": "+358500778313",
+  "email": "liikkanene@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Kamparsintie 23",
+    "addressLocality": "Karuna",
+    "postalCode": "21590",
+    "addressCountry": "FI"
+  },
+  "sameAs": ["https://www.facebook.com/p/Kamparsin-Luomutila-100062928954194/"]
+}
+</script>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sea:      #1a3040;
+  --coastal:  #2a5470;
+  --horizon:  #4a889a;
+  --mist:     #dcedf4;
+  --birch:    #f4f0e6;
+  --birch-dk: #ece6d4;
+  --field:    #3a5028;
+  --straw:    #c8a86a;
+  --straw-lt: #e8d4a0;
+  --earth:    #4a3620;
+  --stone:    #8a7a68;
+  --stone-lt: #cec4b4;
+
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Nunito Sans', system-ui, sans-serif;
+
+  --gap:  clamp(2.5rem, 6vw, 6rem);
+  --wrap: 1280px;
+  --rad:  22px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--earth);
+  background: var(--birch);
+  overflow-x: hidden;
+}
+
+/* ── i18n ── */
+.lang-sv, .lang-en { display: none; }
+[data-lang="sv"] .lang-fi, [data-lang="en"] .lang-fi { display: none; }
+[data-lang="sv"] .lang-sv { display: inline; }
+[data-lang="en"] .lang-en { display: inline; }
+[data-lang="sv"] .lang-sv.blk, [data-lang="en"] .lang-en.blk { display: block; }
+[data-lang="sv"] .lang-sv.flx, [data-lang="en"] .lang-en.flx { display: flex; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 2rem;
+  background: transparent;
+  transition: background .35s ease, box-shadow .35s ease;
+}
+nav.solid {
+  background: var(--sea);
+  box-shadow: 0 2px 20px rgba(26,48,64,.25);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  text-decoration: none;
+}
+.nav-logo img {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255,255,255,.35);
+}
+.nav-logo span {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1rem;
+  color: #fff;
+  letter-spacing: .02em;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--straw); }
+.lang-bar {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+.lang-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,.35);
+  color: rgba(255,255,255,.7);
+  font-family: var(--sans);
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: .28rem .6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.lang-btn:hover, .lang-btn.active {
+  background: var(--straw);
+  border-color: var(--straw);
+  color: var(--sea);
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: .3rem;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all .3s;
+}
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--sea);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: .04em;
+}
+.mobile-menu a:hover { color: var(--straw); }
+.mobile-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* ── HERO — Coastal Split Editorial ── */
+.hero {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+}
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: calc(var(--gap) * 2) var(--gap) var(--gap) clamp(2rem,6vw,5rem);
+  background: var(--sea);
+  position: relative;
+  overflow: hidden;
+}
+.hero-text::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 90%, rgba(42,84,112,.5) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M0 60 Q30 45 60 60 Q90 75 120 60' fill='none' stroke='rgba(255,255,255,.04)' stroke-width='1.5'/%3E%3Cpath d='M0 80 Q30 65 60 80 Q90 95 120 80' fill='none' stroke='rgba(255,255,255,.03)' stroke-width='1.5'/%3E%3Cpath d='M0 40 Q30 25 60 40 Q90 55 120 40' fill='none' stroke='rgba(255,255,255,.04)' stroke-width='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--straw);
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+.hero-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--straw-lt);
+}
+.hero-desc {
+  font-size: clamp(.9rem, 1.2vw, 1.05rem);
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,.7);
+  max-width: 420px;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--straw);
+  color: var(--sea);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .9rem 2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all .25s;
+}
+.btn-primary:hover {
+  background: var(--straw-lt);
+  transform: translateY(-2px);
+}
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: rgba(255,255,255,.8);
+  border: 1px solid rgba(255,255,255,.35);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .9rem 2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all .25s;
+}
+.btn-ghost:hover {
+  border-color: var(--straw);
+  color: var(--straw);
+}
+.hero-photo {
+  position: relative;
+  overflow: hidden;
+  background: var(--coastal);
+}
+.hero-photo .ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  background: linear-gradient(135deg, var(--coastal) 0%, var(--sea) 60%, #0e2030 100%);
+}
+.hero-photo .ph svg {
+  opacity: .25;
+  width: 80px;
+  height: 80px;
+}
+.hero-photo .ph span {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(255,255,255,.35);
+  letter-spacing: .08em;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: clamp(2rem,6vw,5rem);
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  color: rgba(255,255,255,.4);
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.hero-scroll::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: rgba(255,255,255,.3);
+}
+
+/* ── STATS STRIP ── */
+.stats {
+  background: var(--field);
+  padding: 2.5rem var(--gap);
+}
+.stats-grid {
+  max-width: var(--wrap);
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+.stat-item strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--straw-lt);
+  line-height: 1;
+  margin-bottom: .4rem;
+}
+.stat-item span {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+
+/* ── TARINA ── */
+.tarina {
+  padding: var(--gap) clamp(2rem,6vw,5rem);
+  max-width: var(--wrap);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem,5vw,5rem);
+  align-items: center;
+}
+.tarina-photo {
+  border-radius: var(--rad);
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  position: relative;
+  background: var(--mist);
+}
+.tarina-photo .ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  background: linear-gradient(160deg, var(--mist) 0%, var(--birch-dk) 100%);
+}
+.tarina-photo .ph svg { opacity: .3; width: 60px; height: 60px; }
+.tarina-photo .ph span {
+  font-family: var(--serif);
+  font-size: .9rem;
+  font-style: italic;
+  color: var(--stone);
+}
+.tarina-text {}
+.section-eyebrow {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--horizon);
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  color: var(--sea);
+  margin-bottom: 1.5rem;
+}
+.section-title em { font-style: italic; color: var(--coastal); }
+.body-text {
+  font-size: clamp(.9rem, 1.1vw, 1.05rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--earth);
+  margin-bottom: 1.2rem;
+}
+.tarina-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.fact-chip {
+  background: var(--mist);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: .7rem;
+}
+.fact-chip .icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: .1rem;
+}
+.fact-chip p {
+  font-size: .8rem;
+  line-height: 1.5;
+  color: var(--earth);
+}
+.fact-chip p strong {
+  display: block;
+  font-weight: 700;
+  color: var(--sea);
+  margin-bottom: .2rem;
+}
+
+/* ── TUOTTEET ── */
+.tuotteet {
+  background: var(--sea);
+  padding: var(--gap) clamp(2rem,6vw,5rem);
+}
+.section-header {
+  max-width: var(--wrap);
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+.section-header .section-eyebrow { color: var(--straw); }
+.section-header .section-title { color: #fff; }
+.section-header .section-title em { color: var(--straw-lt); }
+.products-grid {
+  max-width: var(--wrap);
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.product-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--rad);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all .3s;
+}
+.product-card:hover {
+  background: rgba(255,255,255,.1);
+  transform: translateY(-4px);
+}
+.product-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.product-title {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--straw-lt);
+  margin-bottom: .8rem;
+}
+.product-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+.product-list li {
+  font-size: .82rem;
+  color: rgba(255,255,255,.65);
+  line-height: 1.4;
+}
+.product-list li::before {
+  content: '—';
+  color: var(--straw);
+  margin-right: .4rem;
+}
+
+/* ── KERUUKALENTERI — Wild Harvest Year ── */
+.keruukalenteri {
+  padding: var(--gap) clamp(2rem,6vw,5rem);
+  background: var(--birch);
+}
+.keruukalenteri .section-header { text-align: left; }
+.keruukalenteri .section-header .section-eyebrow { color: var(--field); }
+.keruukalenteri .section-header .section-title em { color: var(--field); }
+.kalenterin-intro {
+  font-size: clamp(.9rem,1.1vw,1rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: var(--earth);
+  max-width: 560px;
+  margin-bottom: 3rem;
+}
+.calendar-grid {
+  max-width: var(--wrap);
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+.cal-month {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.2rem 1rem;
+  border-top: 3px solid var(--stone-lt);
+  transition: box-shadow .25s;
+}
+.cal-month:hover {
+  box-shadow: 0 8px 30px rgba(26,48,64,.12);
+}
+.cal-month.active-harvest { border-top-color: var(--field); }
+.cal-month.peak-harvest { border-top-color: var(--straw); }
+.cal-month.coastal-harvest { border-top-color: var(--horizon); }
+.month-label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: .6rem;
+}
+.month-items {
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+.harvest-item {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .75rem;
+  color: var(--earth);
+  line-height: 1.3;
+}
+.harvest-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-field   { background: var(--field); }
+.dot-straw   { background: var(--straw); }
+.dot-coastal { background: var(--horizon); }
+.dot-stone   { background: var(--stone); }
+
+/* ── PUOTI & KAHVILA ── */
+.puoti {
+  background: var(--birch-dk);
+  padding: var(--gap) clamp(2rem,6vw,5rem);
+}
+.puoti-inner {
+  max-width: var(--wrap);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem,5vw,5rem);
+  align-items: center;
+}
+.puoti-photo {
+  border-radius: var(--rad);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  position: relative;
+  background: var(--mist);
+}
+.puoti-photo .ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  background: linear-gradient(145deg, var(--birch) 0%, var(--mist) 100%);
+}
+.puoti-photo .ph svg { opacity: .3; width: 60px; height: 60px; }
+.puoti-photo .ph span {
+  font-family: var(--serif);
+  font-size: .9rem;
+  font-style: italic;
+  color: var(--stone);
+}
+.hours-block {
+  background: #fff;
+  border-radius: var(--rad);
+  padding: 1.8rem 2rem;
+  margin-top: 2rem;
+  border-left: 4px solid var(--straw);
+}
+.hours-title {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: .8rem;
+}
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: .88rem;
+  padding: .4rem 0;
+  border-bottom: 1px solid var(--birch-dk);
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-row span { color: var(--earth); font-weight: 300; }
+.hours-row strong { color: var(--sea); font-weight: 600; }
+.access-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: 1.5rem;
+}
+.chip {
+  background: var(--mist);
+  color: var(--coastal);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  padding: .4rem 1rem;
+  border-radius: 999px;
+}
+
+/* ── YHTEYSTIEDOT ── */
+.contact {
+  background: var(--sea);
+  padding: var(--gap) clamp(2rem,6vw,5rem);
+}
+.contact-inner {
+  max-width: var(--wrap);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(2rem,5vw,5rem);
+  align-items: start;
+}
+.contact .section-eyebrow { color: var(--straw); }
+.contact .section-title { color: #fff; }
+.contact .section-title em { color: var(--straw-lt); }
+.contact .body-text { color: rgba(255,255,255,.65); }
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.contact-item .ci-icon {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.contact-item .ci-body {}
+.contact-item .ci-label {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-bottom: .3rem;
+}
+.contact-item .ci-value {
+  font-size: .95rem;
+  color: rgba(255,255,255,.85);
+}
+.contact-item a {
+  color: var(--straw-lt);
+  text-decoration: none;
+}
+.contact-item a:hover { text-decoration: underline; }
+.contact-map {
+  border-radius: var(--rad);
+  overflow: hidden;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-map h3 {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  color: var(--straw-lt);
+  font-weight: 400;
+  margin-bottom: .5rem;
+}
+.map-placeholder {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1e3a50, #2a5470);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: .8rem;
+  font-size: 2rem;
+}
+.map-placeholder span {
+  font-size: .82rem;
+  color: rgba(255,255,255,.5);
+  font-style: italic;
+}
+.map-addr {
+  font-size: .85rem;
+  color: rgba(255,255,255,.65);
+  line-height: 1.6;
+}
+.map-addr strong { color: rgba(255,255,255,.85); }
+
+/* ── FOOTER ── */
+footer {
+  background: #0f1e2a;
+  padding: 2.5rem clamp(2rem,6vw,5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+.footer-logo img {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: .7;
+}
+.footer-logo span {
+  font-family: var(--serif);
+  font-size: .95rem;
+  color: rgba(255,255,255,.5);
+}
+.footer-text {
+  font-size: .72rem;
+  color: rgba(255,255,255,.3);
+  text-align: center;
+  line-height: 1.6;
+}
+.footer-fb a {
+  font-size: .72rem;
+  color: rgba(255,255,255,.35);
+  text-decoration: none;
+}
+.footer-fb a:hover { color: var(--straw); }
+
+/* ── SCROLL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal-delay-1 { transition-delay: .1s; }
+.reveal-delay-2 { transition-delay: .2s; }
+.reveal-delay-3 { transition-delay: .3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .calendar-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-text { padding: 7rem 1.5rem 3rem; min-height: 70svh; }
+  .hero-photo { height: 55vw; min-height: 260px; }
+  .hero-scroll { display: none; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .tarina { grid-template-columns: 1fr; }
+  .tarina-photo { aspect-ratio: 4/3; }
+  .products-grid { grid-template-columns: 1fr 1fr; }
+  .calendar-grid { grid-template-columns: repeat(3, 1fr); }
+  .puoti-inner { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .calendar-grid { grid-template-columns: repeat(2, 1fr); }
+  .tarina-facts { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="images/logo.jpg" alt="Kamparsin Luomutila">
+    <span>Kampars</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#tarina"><span class="lang-fi">Tarina</span><span class="lang-sv">Berättelse</span><span class="lang-en">Story</span></a></li>
+    <li><a href="#tuotteet"><span class="lang-fi">Tuotteet</span><span class="lang-sv">Produkter</span><span class="lang-en">Products</span></a></li>
+    <li><a href="#keruukalenteri"><span class="lang-fi">Luonnonkeräys</span><span class="lang-sv">Naturplock</span><span class="lang-en">Wild Harvest</span></a></li>
+    <li><a href="#puoti"><span class="lang-fi">Tilapuoti</span><span class="lang-sv">Gårdsbutik</span><span class="lang-en">Farm Shop</span></a></li>
+    <li><a href="#yhteystiedot"><span class="lang-fi">Yhteystiedot</span><span class="lang-sv">Kontakt</span><span class="lang-en">Contact</span></a></li>
+  </ul>
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('fi')">FI</button>
+    <button class="lang-btn" onclick="setLang('sv')">SV</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Valikko">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="menuClose">✕</button>
+  <a href="#tarina" onclick="closeMobile()"><span class="lang-fi">Tarina</span><span class="lang-sv">Berättelse</span><span class="lang-en">Story</span></a>
+  <a href="#tuotteet" onclick="closeMobile()"><span class="lang-fi">Tuotteet</span><span class="lang-sv">Produkter</span><span class="lang-en">Products</span></a>
+  <a href="#keruukalenteri" onclick="closeMobile()"><span class="lang-fi">Luonnonkeräys</span><span class="lang-sv">Naturplock</span><span class="lang-en">Wild Harvest</span></a>
+  <a href="#puoti" onclick="closeMobile()"><span class="lang-fi">Tilapuoti</span><span class="lang-sv">Gårdsbutik</span><span class="lang-en">Farm Shop</span></a>
+  <a href="#yhteystiedot" onclick="closeMobile()"><span class="lang-fi">Yhteystiedot</span><span class="lang-sv">Kontakt</span><span class="lang-en">Contact</span></a>
+  <div class="lang-bar">
+    <button class="lang-btn" onclick="setLang('fi');closeMobile()">FI</button>
+    <button class="lang-btn" onclick="setLang('sv');closeMobile()">SV</button>
+    <button class="lang-btn" onclick="setLang('en');closeMobile()">EN</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">
+      <span class="lang-fi">Karuna, Sauvo · Luomutuotanto</span>
+      <span class="lang-sv">Karuna, Sauvo · Ekologisk odling</span>
+      <span class="lang-en">Karuna, Sauvo · Certified Organic</span>
+    </p>
+    <h1 class="hero-title">
+      <span class="lang-fi">Kamparsin<br><em>Luomutila</em></span>
+      <span class="lang-sv blk">Kamparsin<br><em>Ekogård</em></span>
+      <span class="lang-en blk">Kamparsin<br><em>Organic Farm</em></span>
+    </h1>
+    <p class="hero-desc">
+      <span class="lang-fi">Luomua suoraan meren rannalta. Viljaa, vihanneksia, luonnontuotteita ja tilapuoti Saaristomeren saariston kupeessa Karunassa.</span>
+      <span class="lang-sv">Ekologiskt direkt från havets strand. Spannmål, grönsaker, naturprodukter och gårdsbutik vid Skärgårdshavet i Karuna.</span>
+      <span class="lang-en">Organic straight from the sea shore. Grain, vegetables, wild harvest goods and a farm shop by the Archipelago Sea in Karuna.</span>
+    </p>
+    <div class="hero-ctas">
+      <a href="#tuotteet" class="btn-primary">
+        <span class="lang-fi">Tutustu tuotteisiin</span>
+        <span class="lang-sv">Utforska produkter</span>
+        <span class="lang-en">Explore products</span>
+      </a>
+      <a href="#puoti" class="btn-ghost">
+        <span class="lang-fi">Tilapuoti</span>
+        <span class="lang-sv">Gårdsbutik</span>
+        <span class="lang-en">Farm Shop</span>
+      </a>
+    </div>
+    <div class="hero-scroll">
+      <span class="lang-fi">Vieritä alas</span>
+      <span class="lang-sv">Scrolla ner</span>
+      <span class="lang-en">Scroll down</span>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <div class="ph">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 40 Q20 28 32 36 Q44 44 56 32" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M8 48 Q20 36 32 44 Q44 52 56 40" stroke="rgba(255,255,255,.3)" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="20" cy="22" r="10" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+        <path d="M28 28 L40 40" stroke="rgba(255,255,255,.25)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="lang-fi">Kuva tulossa</span>
+      <span class="lang-sv">Foto kommer</span>
+      <span class="lang-en">Photo coming soon</span>
+    </div>
+  </div>
+</header>
+
+<!-- STATS -->
+<section class="stats" aria-label="Tilatiedot">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <strong>90</strong>
+      <span class="lang-fi">hehtaaria viljelyä</span>
+      <span class="lang-sv">hektar odling</span>
+      <span class="lang-en">hectares cultivated</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <strong>150</strong>
+      <span class="lang-fi">ha luonnonkeruuta</span>
+      <span class="lang-sv">ha naturplock</span>
+      <span class="lang-en">ha wild harvest</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <strong>2000</strong>
+      <span class="lang-fi">sukupolvenvaihdos</span>
+      <span class="lang-sv">generationsskifte</span>
+      <span class="lang-en">generation change</span>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <strong>2</strong>
+      <span class="lang-fi">perheen yhteistila</span>
+      <span class="lang-sv">familjers samgård</span>
+      <span class="lang-en">families, one farm</span>
+    </div>
+  </div>
+</section>
+
+<!-- TARINA -->
+<section class="tarina" id="tarina" aria-labelledby="tarina-title">
+  <div class="tarina-photo reveal">
+    <div class="ph">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 52 C12 38 20 28 32 28 C44 28 52 38 52 52" stroke="var(--stone)" stroke-width="1.5" fill="none"/>
+        <circle cx="32" cy="20" r="10" stroke="var(--stone)" stroke-width="1.5" fill="none"/>
+      </svg>
+      <span class="lang-fi">Tilanväki</span>
+      <span class="lang-sv">Gårdsfolket</span>
+      <span class="lang-en">Farm family</span>
+    </div>
+  </div>
+  <div class="tarina-text reveal reveal-delay-1">
+    <p class="section-eyebrow">
+      <span class="lang-fi">Tarina</span>
+      <span class="lang-sv">Berättelse</span>
+      <span class="lang-en">Our story</span>
+    </p>
+    <h2 class="section-title" id="tarina-title">
+      <span class="lang-fi">Kahden <em>tilan</em> symbioosi</span>
+      <span class="lang-sv">En <em>symbios</em> av två gårdar</span>
+      <span class="lang-en">A <em>symbiosis</em> of two farms</span>
+    </h2>
+    <p class="body-text lang-fi">
+      Kamparsin Luomutila Karunassa on Eero Liikkasen kotitila, jonka sukupolven vaihdos toteutettiin vuonna 2000. Tilan kumppanina toimii Jaana Elon Kaikumäki, jonka pelloilla Kampars myös viljelee.
+    </p>
+    <p class="body-text lang-sv blk">
+      Kamparsin Luomutila i Karuna är Eero Likkänens hemgård, där generationsskiftet genomfördes år 2000. Gårdens partner är Jaana Elos Kaikumäki, vars åkrar Kampars också odlar.
+    </p>
+    <p class="body-text lang-en blk">
+      Kamparsin Luomutila in Karuna is Eero Liikkanen's family farm, where the generational change took place in 2000. The farm's partner is Jaana Elo's Kaikumäki estate, whose fields Kampars also cultivates.
+    </p>
+    <p class="body-text lang-fi">
+      Jaana Elo on elintarviketeknologian insinööri ja luomualan asiantuntija, joka on vuosia kouluttanut alan toimijoita ympäri Suomea. Tilapuoti ja kotieläinpiha sijaitsevat Jaanan pihapiirissä, jonne pääsee myös veneellä suoraan saaristosta.
+    </p>
+    <p class="body-text lang-sv blk">
+      Jaana Elo är livsmedelsteknolog och ekologisk expert, som i år utbildat branschaktörer runt om i Finland. Gårdsbutiken och husdjursgården ligger i Jaanas gårdsplan, dit man kan komma med båt direkt från skärgården.
+    </p>
+    <p class="body-text lang-en blk">
+      Jaana Elo is a food technology engineer and organic farming specialist who has trained industry professionals across Finland. The farm shop and animal yard are located at Jaana's property, accessible by boat directly from the archipelago.
+    </p>
+    <div class="tarina-facts">
+      <div class="fact-chip">
+        <span class="icon">🌊</span>
+        <p><strong><span class="lang-fi">Merenpinnassa</span><span class="lang-sv">Vid havet</span><span class="lang-en">By the sea</span></strong>
+        <span class="lang-fi">Tilalle pääsee veneellä suoraan</span>
+        <span class="lang-sv">Hit kan man komma med båt</span>
+        <span class="lang-en">Accessible directly by boat</span></p>
+      </div>
+      <div class="fact-chip">
+        <span class="icon">🌿</span>
+        <p><strong><span class="lang-fi">Luomua alusta asti</span><span class="lang-sv">Ekologisk sedan start</span><span class="lang-en">Organic from the start</span></strong>
+        <span class="lang-fi">Pitkäaikainen luomusertifioitu tuotanto</span>
+        <span class="lang-sv">Långvarig ekocertifierad produktion</span>
+        <span class="lang-en">Long-standing certified organic production</span></p>
+      </div>
+      <div class="fact-chip">
+        <span class="icon">🏡</span>
+        <p><strong><span class="lang-fi">Tilapuoti &amp; kahvila</span><span class="lang-sv">Gårdsbutik &amp; café</span><span class="lang-en">Farm shop &amp; café</span></strong>
+        <span class="lang-fi">Avoinna kesäkaudella</span>
+        <span class="lang-sv">Öppen under sommarsäsongen</span>
+        <span class="lang-en">Open throughout the summer season</span></p>
+      </div>
+      <div class="fact-chip">
+        <span class="icon">🦔</span>
+        <p><strong><span class="lang-fi">Kotieläinpiha</span><span class="lang-sv">Husdjursgård</span><span class="lang-en">Farm animal yard</span></strong>
+        <span class="lang-fi">Kanoja, lampaita ja poneja</span>
+        <span class="lang-sv">Höns, får och ponnyer</span>
+        <span class="lang-en">Chickens, sheep and ponies</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TUOTTEET -->
+<section class="tuotteet" id="tuotteet" aria-labelledby="tuotteet-title">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">
+      <span class="lang-fi">Tuotteet</span>
+      <span class="lang-sv">Produkter</span>
+      <span class="lang-en">Products</span>
+    </p>
+    <h2 class="section-title" id="tuotteet-title">
+      <span class="lang-fi">Luomua <em>suoraan tilalta</em></span>
+      <span class="lang-sv">Ekologiskt <em>direkt från gården</em></span>
+      <span class="lang-en">Organic <em>direct from the farm</em></span>
+    </h2>
+  </div>
+  <div class="products-grid">
+    <div class="product-card reveal">
+      <span class="product-icon">🌾</span>
+      <h3 class="product-title lang-fi">Viljat</h3>
+      <h3 class="product-title lang-sv">Spannmål</h3>
+      <h3 class="product-title lang-en">Grain Crops</h3>
+      <ul class="product-list">
+        <li><span class="lang-fi">Kaura</span><span class="lang-sv">Havre</span><span class="lang-en">Oats</span></li>
+        <li><span class="lang-fi">Vehnä</span><span class="lang-sv">Vete</span><span class="lang-en">Wheat</span></li>
+        <li><span class="lang-fi">Ohra</span><span class="lang-sv">Korn</span><span class="lang-en">Barley</span></li>
+        <li><span class="lang-fi">Speltti</span><span class="lang-sv">Spelt</span><span class="lang-en">Spelt</span></li>
+        <li><span class="lang-fi">Rypsi</span><span class="lang-sv">Raps</span><span class="lang-en">Rapeseed</span></li>
+      </ul>
+    </div>
+    <div class="product-card reveal reveal-delay-1">
+      <span class="product-icon">🥕</span>
+      <h3 class="product-title lang-fi">Vihannekset</h3>
+      <h3 class="product-title lang-sv">Grönsaker</h3>
+      <h3 class="product-title lang-en">Vegetables</h3>
+      <ul class="product-list">
+        <li><span class="lang-fi">Peruna (aikainen &amp; talvi)</span><span class="lang-sv">Potatis (tidig &amp; vinter)</span><span class="lang-en">Potato (early &amp; winter)</span></li>
+        <li><span class="lang-fi">Porkkana</span><span class="lang-sv">Morot</span><span class="lang-en">Carrot</span></li>
+        <li><span class="lang-fi">Sipuli</span><span class="lang-sv">Lök</span><span class="lang-en">Onion</span></li>
+        <li><span class="lang-fi">Punajuuri</span><span class="lang-sv">Rödbeta</span><span class="lang-en">Beetroot</span></li>
+        <li><span class="lang-fi">Herne</span><span class="lang-sv">Ärt</span><span class="lang-en">Peas</span></li>
+      </ul>
+    </div>
+    <div class="product-card reveal reveal-delay-2">
+      <span class="product-icon">🫐</span>
+      <h3 class="product-title lang-fi">Luonnontuotteet</h3>
+      <h3 class="product-title lang-sv">Naturprodukter</h3>
+      <h3 class="product-title lang-en">Wild Products</h3>
+      <ul class="product-list">
+        <li><span class="lang-fi">Metsämarjat</span><span class="lang-sv">Skogsbär</span><span class="lang-en">Forest berries</span></li>
+        <li><span class="lang-fi">Sienet</span><span class="lang-sv">Svamp</span><span class="lang-en">Mushrooms</span></li>
+        <li><span class="lang-fi">Kuusenkerkkä</span><span class="lang-sv">Granens toppar</span><span class="lang-en">Spruce shoots</span></li>
+        <li><span class="lang-fi">Koivunlehti</span><span class="lang-sv">Björkblad</span><span class="lang-en">Birch leaves</span></li>
+        <li><span class="lang-fi">Jäkälä (kosmetiikka)</span><span class="lang-sv">Lav (kosmetik)</span><span class="lang-en">Lichen (cosmetics)</span></li>
+      </ul>
+    </div>
+    <div class="product-card reveal reveal-delay-3">
+      <span class="product-icon">☕</span>
+      <h3 class="product-title lang-fi">Tilapalvelut</h3>
+      <h3 class="product-title lang-sv">Gårdstjänster</h3>
+      <h3 class="product-title lang-en">Farm Services</h3>
+      <ul class="product-list">
+        <li><span class="lang-fi">Kesäkahvila</span><span class="lang-sv">Sommarcafé</span><span class="lang-en">Summer café</span></li>
+        <li><span class="lang-fi">Tilatilaisuudet</span><span class="lang-sv">Arrangemang</span><span class="lang-en">Events &amp; meetings</span></li>
+        <li><span class="lang-fi">Poniajelu kesäisin</span><span class="lang-sv">Ponyturer på sommaren</span><span class="lang-en">Pony rides in summer</span></li>
+        <li><span class="lang-fi">Soutuveneenvuokraus</span><span class="lang-sv">Roddbåtsuthyrning</span><span class="lang-en">Rowing boat rental</span></li>
+        <li><span class="lang-fi">Mansikka (tilapuodissa)</span><span class="lang-sv">Jordgubbar (i butik)</span><span class="lang-en">Strawberries (in-shop)</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- KERUUKALENTERI — Signature component: Wild Harvest Year -->
+<section class="keruukalenteri" id="keruukalenteri" aria-labelledby="keruu-title">
+  <div class="section-header reveal" style="max-width:var(--wrap);margin:0 auto 1rem;">
+    <p class="section-eyebrow">
+      <span class="lang-fi">Luonnonkeräys</span>
+      <span class="lang-sv">Naturplock</span>
+      <span class="lang-en">Wild Harvest</span>
+    </p>
+    <h2 class="section-title" id="keruu-title" style="color:var(--sea);">
+      <span class="lang-fi">Keruuvuoden <em>kalenteri</em></span>
+      <span class="lang-sv">Naturplockets <em>årskalender</em></span>
+      <span class="lang-en">The wild harvest <em>year</em></span>
+    </h2>
+  </div>
+  <p class="kalenterin-intro reveal" style="max-width:var(--wrap);margin:0 auto 3rem;">
+    <span class="lang-fi">Kamparsilla on 150 hehtaaria luonnonkeruualuetta saariston reunoilla. Metsistä ja rannoilta korjataan vuoden ympäri luonnonantimia sekä suoraan tilapuotiin että elintarvike- ja kosmetiikkateollisuudelle.</span>
+    <span class="lang-sv">Kampars förfogar över 150 hektar naturplocksområde vid skärgårdens kanter. Från skogar och stränder skördas naturens gåvor året om, både direkt till gårdsbutiken och till livsmedels- och kosmetikindustrin.</span>
+    <span class="lang-en">Kampars has 150 hectares of wild harvest area along the archipelago edges. Forests and shores yield their gifts year-round, going both to the farm shop and to food and cosmetics industry buyers.</span>
+  </p>
+  <div class="calendar-grid" style="max-width:var(--wrap);margin:auto;">
+
+    <div class="cal-month coastal-harvest reveal">
+      <p class="month-label lang-fi">Tammikuu</p>
+      <p class="month-label lang-sv">Januari</p>
+      <p class="month-label lang-en">January</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-stone"></div><span class="lang-fi">Jäkälä (kosmetiikka)</span><span class="lang-sv">Lav (kosmetik)</span><span class="lang-en">Lichen (cosmetics)</span></div>
+      </div>
+    </div>
+
+    <div class="cal-month coastal-harvest reveal reveal-delay-1">
+      <p class="month-label lang-fi">Helmikuu</p>
+      <p class="month-label lang-sv">Februari</p>
+      <p class="month-label lang-en">February</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-stone"></div><span class="lang-fi">Jäkälä</span><span class="lang-sv">Lav</span><span class="lang-en">Lichen</span></div>
+      </div>
+    </div>
+
+    <div class="cal-month active-harvest reveal reveal-delay-2">
+      <p class="month-label lang-fi">Maaliskuu</p>
+      <p class="month-label lang-sv">Mars</p>
+      <p class="month-label lang-en">March</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-coastal"></div><span class="lang-fi">Koivun tuohi</span><span class="lang-sv">Björknäver</span><span class="lang-en">Birch bark</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-stone"></div><span class="lang-fi">Jäkälä</span><span class="lang-sv">Lav</span><span class="lang-en">Lichen</span></div>
+      </div>
+    </div>
+
+    <div class="cal-month active-harvest reveal reveal-delay-3">
+      <p class="month-label lang-fi">Huhtikuu</p>
+      <p class="month-label lang-sv">April</p>
+      <p class="month-label lang-en">April</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-field"></div><span class="lang-fi">Koivunlehti</span><span class="lang-sv">Björkblad</span><span class="lang-en">Birch leaves</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-coastal"></div><span class="lang-fi">Männyn neulanen</span><span class="lang-sv">Tallbarr</span><span class="lang-en">Pine needles</span></div>
+      </div>
+    </div>
+
+    <div class="cal-month peak-harvest reveal">
+      <p class="month-label lang-fi">Toukokuu</p>
+      <p class="month-label lang-sv">Maj</p>
+      <p class="month-label lang-en">May</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-straw"></div><span class="lang-fi">Kuusenkerkkä</span><span class="lang-sv">Granens toppar</span><span class="lang-en">Spruce shoots</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-field"></div><span class="lang-fi">Koivunlehti</span><span class="lang-sv">Björkblad</span><span class="lang-en">Birch leaves</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-coastal"></div><span class="lang-fi">Puna-apila</span><span class="lang-sv">Rödklöver</span><span class="lang-en">Red clover</span></div>
+      </div>
+    </div>
+
+    <div class="cal-month peak-harvest reveal reveal-delay-1">
+      <p class="month-label lang-fi">Kesäkuu</p>
+      <p class="month-label lang-sv">Juni</p>
+      <p class="month-label lang-en">June</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-straw"></div><span class="lang-fi">Mansikka</span><span class="lang-sv">Jordgubbe</span><span class="lang-en">Strawberry</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-field"></div><span class="lang-fi">Metsämansikat</span><span class="lang-sv">Smultron</span><span class="lang-en">Wild strawberries</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-coastal"></div><span class="lang-fi">Puna-apila</span><span class="lang-sv">Rödklöver</span><span class="lang-en">Red clover</span></div>
+      </div>
+    </div>
+
+    <div class="cal-month peak-harvest reveal reveal-delay-2">
+      <p class="month-label lang-fi">Heinäkuu</p>
+      <p class="month-label lang-sv">Juli</p>
+      <p class="month-label lang-en">July</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-straw"></div><span class="lang-fi">Mustikka</span><span class="lang-sv">Blåbär</span><span class="lang-en">Bilberry</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-field"></div><span class="lang-fi">Herkkutatti alkaa</span><span class="lang-sv">Karljohan börjar</span><span class="lang-en">Porcini begins</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-coastal"></div><span class="lang-fi">Koivunlehti</span><span class="lang-sv">Björkblad</span><span class="lang-en">Birch leaves</span></div>
+      </div>
+    </div>
+
+    <div class="cal-month peak-harvest reveal reveal-delay-3">
+      <p class="month-label lang-fi">Elokuu</p>
+      <p class="month-label lang-sv">Augusti</p>
+      <p class="month-label lang-en">August</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-straw"></div><span class="lang-fi">Puolukka</span><span class="lang-sv">Lingon</span><span class="lang-en">Lingonberry</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-field"></div><span class="lang-fi">Kantarelli</span><span class="lang-sv">Kantarell</span><span class="lang-en">Chanterelle</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-straw"></div><span class="lang-fi">Mustikka</span><span class="lang-sv">Blåbär</span><span class="lang-en">Bilberry</span></div>
+      </div>
+    </div>
+
+    <div class="cal-month active-harvest reveal">
+      <p class="month-label lang-fi">Syyskuu</p>
+      <p class="month-label lang-sv">September</p>
+      <p class="month-label lang-en">September</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-straw"></div><span class="lang-fi">Puolukka (huippu)</span><span class="lang-sv">Lingon (topp)</span><span class="lang-en">Lingonberry (peak)</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-field"></div><span class="lang-fi">Sieni (tatti, harakka)</span><span class="lang-sv">Svamp</span><span class="lang-en">Mushroom (porcini)</span></div>
+      </div>
+    </div>
+
+    <div class="cal-month active-harvest reveal reveal-delay-1">
+      <p class="month-label lang-fi">Lokakuu</p>
+      <p class="month-label lang-sv">Oktober</p>
+      <p class="month-label lang-en">October</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-field"></div><span class="lang-fi">Syyssieni</span><span class="lang-sv">Höstsvamp</span><span class="lang-en">Autumn mushrooms</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-stone"></div><span class="lang-fi">Jäkälä</span><span class="lang-sv">Lav</span><span class="lang-en">Lichen</span></div>
+      </div>
+    </div>
+
+    <div class="cal-month coastal-harvest reveal reveal-delay-2">
+      <p class="month-label lang-fi">Marraskuu</p>
+      <p class="month-label lang-sv">November</p>
+      <p class="month-label lang-en">November</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-stone"></div><span class="lang-fi">Jäkälä</span><span class="lang-sv">Lav</span><span class="lang-en">Lichen</span></div>
+        <div class="harvest-item"><div class="harvest-dot dot-coastal"></div><span class="lang-fi">Männyn neulanen</span><span class="lang-sv">Tallbarr</span><span class="lang-en">Pine needles</span></div>
+      </div>
+    </div>
+
+    <div class="cal-month coastal-harvest reveal reveal-delay-3">
+      <p class="month-label lang-fi">Joulukuu</p>
+      <p class="month-label lang-sv">December</p>
+      <p class="month-label lang-en">December</p>
+      <div class="month-items">
+        <div class="harvest-item"><div class="harvest-dot dot-stone"></div><span class="lang-fi">Jäkälä (kosmetiikka)</span><span class="lang-sv">Lav (kosmetik)</span><span class="lang-en">Lichen (cosmetics)</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TILAPUOTI & KAHVILA -->
+<section class="puoti" id="puoti" aria-labelledby="puoti-title">
+  <div class="puoti-inner">
+    <div>
+      <p class="section-eyebrow">
+        <span class="lang-fi">Tilapuoti &amp; Kahvila</span>
+        <span class="lang-sv">Gårdsbutik &amp; Café</span>
+        <span class="lang-en">Farm Shop &amp; Café</span>
+      </p>
+      <h2 class="section-title reveal" id="puoti-title">
+        <span class="lang-fi">Hyvää lähellä <em>tuotettua</em></span>
+        <span class="lang-sv">Gott från <em>närproducerat</em></span>
+        <span class="lang-en">Good things <em>grown nearby</em></span>
+      </h2>
+      <p class="body-text lang-fi reveal">
+        Tilapuodista löydät oman maakunnan luomutuotteita, tuoreita vihanneksia ja tilauksesta myös luomujuureksia talvipakkauksissaan. Puodin yhteydessä toimii kesäkahvila, jossa tarjoillaan päivittäin leivottua leipää ja makeaa kahvin kanssa.
+      </p>
+      <p class="body-text lang-sv blk reveal">
+        I gårdsbutiken hittar du ekologiska produkter från regionen, färska grönsaker och på beställning också ekologiska rotfrukter i vinterförpackning. I anslutning till butiken finns ett sommarcafé som dagligen serverar nybakat bröd och sötsaker till kaffet.
+      </p>
+      <p class="body-text lang-en blk reveal">
+        The farm shop carries regional organic produce, fresh vegetables and — by arrangement — root vegetables in winter storage. The adjoining summer café bakes fresh bread daily and serves sweet treats with your coffee.
+      </p>
+      <div class="hours-block reveal">
+        <p class="hours-title lang-fi">Aukioloajat</p>
+        <p class="hours-title lang-sv">Öppettider</p>
+        <p class="hours-title lang-en">Opening hours</p>
+        <div class="hours-row">
+          <span class="lang-fi">Kesäkausi (ke–ma)</span>
+          <span class="lang-sv">Sommarsäsong (on–må)</span>
+          <span class="lang-en">Summer season (Wed–Mon)</span>
+          <strong>9–18</strong>
+        </div>
+        <div class="hours-row">
+          <span class="lang-fi">Viikonloput (syyskuu)</span>
+          <span class="lang-sv">Veckoslut (september)</span>
+          <span class="lang-en">Weekends (September)</span>
+          <strong>10–17</strong>
+        </div>
+        <div class="hours-row">
+          <span class="lang-fi">Juurekset ympäri vuoden</span>
+          <span class="lang-sv">Rotfrukter hela året</span>
+          <span class="lang-en">Root veg year-round</span>
+          <strong class="lang-fi">sopimuksesta</strong>
+          <strong class="lang-sv">efter överens.</strong>
+          <strong class="lang-en">by appointment</strong>
+        </div>
+      </div>
+      <div class="access-chips reveal">
+        <span class="chip">🚤 <span class="lang-fi">Saavuttavissa veneellä</span><span class="lang-sv">Nåbar med båt</span><span class="lang-en">Accessible by boat</span></span>
+        <span class="chip">🏖️ <span class="lang-fi">Uimaranta vieressä</span><span class="lang-sv">Badstrand bredvid</span><span class="lang-en">Beach next door</span></span>
+        <span class="chip">🐴 <span class="lang-fi">Poniajelu</span><span class="lang-sv">Ponyturer</span><span class="lang-en">Pony rides</span></span>
+      </div>
+    </div>
+    <div class="puoti-photo reveal">
+      <div class="ph">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="12" y="20" width="40" height="28" rx="4" stroke="var(--stone)" stroke-width="1.5"/>
+          <path d="M12 28 L32 20 L52 28" stroke="var(--stone)" stroke-width="1.5" stroke-linejoin="round"/>
+          <rect x="26" y="32" width="12" height="16" rx="2" stroke="var(--stone)" stroke-width="1"/>
+        </svg>
+        <span class="lang-fi">Tilapuoti</span>
+        <span class="lang-sv">Gårdsbutik</span>
+        <span class="lang-en">Farm shop</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YHTEYSTIEDOT -->
+<section class="contact" id="yhteystiedot" aria-labelledby="contact-title">
+  <div class="contact-inner">
+    <div>
+      <p class="section-eyebrow">
+        <span class="lang-fi">Yhteystiedot</span>
+        <span class="lang-sv">Kontakt</span>
+        <span class="lang-en">Contact</span>
+      </p>
+      <h2 class="section-title reveal" id="contact-title">
+        <span class="lang-fi"><em>Ota yhteyttä</em> tai vieraile</span>
+        <span class="lang-sv"><em>Kontakta oss</em> eller besök</span>
+        <span class="lang-en"><em>Get in touch</em> or visit</span>
+      </h2>
+      <p class="body-text lang-fi reveal">Tervetuloa tilalle! Veneellä pääsee perille suoraan. Tilapuodissa käy myös mökkiläisiä ja venekansaa koko kesäkauden ajan.</p>
+      <p class="body-text lang-sv blk reveal">Välkommen till gården! Man kan ta sig dit med båt direkt. Gårdsbutiken besöks av sommarstugefolk och båtfolk hela sommarsäsongen.</p>
+      <p class="body-text lang-en blk reveal">Welcome to the farm! Accessible directly by boat. The farm shop welcomes cottage guests and boat visitors throughout the summer season.</p>
+      <div class="contact-details reveal">
+        <div class="contact-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-body">
+            <p class="ci-label lang-fi">Osoite</p>
+            <p class="ci-label lang-sv">Adress</p>
+            <p class="ci-label lang-en">Address</p>
+            <p class="ci-value">Kamparsintie 23, 21590 Karuna<br><span style="color:rgba(255,255,255,.5);font-size:.82rem;">Sauvo, Varsinais-Suomi</span></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📞</div>
+          <div class="ci-body">
+            <p class="ci-label lang-fi">Puhelin</p>
+            <p class="ci-label lang-sv">Telefon</p>
+            <p class="ci-label lang-en">Phone</p>
+            <p class="ci-value">
+              Eero: <a href="tel:+358500778313">050 077 8313</a><br>
+              Jaana: <a href="tel:+358442220879">044 222 0879</a>
+            </p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">✉️</div>
+          <div class="ci-body">
+            <p class="ci-label lang-fi">Sähköposti</p>
+            <p class="ci-label lang-sv">E-post</p>
+            <p class="ci-label lang-en">Email</p>
+            <p class="ci-value"><a href="mailto:liikkanene@gmail.com">liikkanene@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ci-icon">📘</div>
+          <div class="ci-body">
+            <p class="ci-label">Facebook</p>
+            <p class="ci-value"><a href="https://www.facebook.com/p/Kamparsin-Luomutila-100062928954194/" target="_blank" rel="noopener">Kamparsin Luomutila</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-map reveal">
+      <h3 class="lang-fi">Löydä meidät</h3>
+      <h3 class="lang-sv">Hitta oss</h3>
+      <h3 class="lang-en">Find us</h3>
+      <div class="map-placeholder">
+        🗺️
+        <span>Karuna, Sauvo</span>
+      </div>
+      <p class="map-addr">
+        <strong>Kamparsin Luomutila</strong><br>
+        Kamparsintie 23<br>
+        21590 Karuna, Sauvo<br>
+        <br>
+        <span class="lang-fi">60° 16' P, 22° 36' I — Saaristomeri</span>
+        <span class="lang-sv">60° 16' N, 22° 36' Ö — Skärgårdshavet</span>
+        <span class="lang-en">60° 16' N, 22° 36' E — Archipelago Sea</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="images/logo.jpg" alt="Kamparsin Luomutila">
+    <span>Kamparsin Luomutila</span>
+  </div>
+  <p class="footer-text">
+    <span class="lang-fi">Demo, suunnitellut Anton Jalonen — odottaa virallista julkaisua</span>
+    <span class="lang-sv">Demo, designad av Anton Jalonen — inväntar officiell lansering</span>
+    <span class="lang-en">Demo, designed by Anton Jalonen — awaiting official launch</span>
+  </p>
+  <div class="footer-fb">
+    <a href="https://www.facebook.com/p/Kamparsin-Luomutila-100062928954194/" target="_blank" rel="noopener">
+      <span class="lang-fi">Seuraa Facebookissa</span>
+      <span class="lang-sv">Följ på Facebook</span>
+      <span class="lang-en">Follow on Facebook</span>
+    </a>
+  </div>
+</footer>
+
+<script>
+// i18n
+function setLang(l) {
+  document.documentElement.dataset.lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent === l.toUpperCase());
+  });
+  const titles = { fi:'Kamparsin Luomutila – Luomua meren rannalta Karunasta', sv:'Kamparsin Ekogård – Ekologiskt vid havets strand', en:'Kamparsin Organic Farm – Certified Organic by the Sea' };
+  document.title = titles[l];
+}
+
+// Nav solidify on scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('solid', window.scrollY > 60);
+}, { passive: true });
+
+// Mobile menu
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.add('open');
+});
+document.getElementById('menuClose').addEventListener('click', closeMobile);
+function closeMobile() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// Set initial lang
+setLang('fi');
+</script>
+</body>
+</html>
